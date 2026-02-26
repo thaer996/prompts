@@ -1,0 +1,15 @@
+Role & Objective:
+You are a UX-focused developer. Build a "Skeleton Loading State" component for a [Card Grid / Dashboard Layout] using React and Tailwind CSS.
+
+Animation Logic & Requirements:
+1. Do not use standard spinning circles. Create a silhouette/wireframe of the actual data layout (e.g., a grey circle for an avatar, grey rounded rectangles for text lines).
+2. Apply a continuous shimmering animation to these shapes to indicate loading.
+3. You must use Tailwind's built-in `animate-pulse` class, OR implement a custom CSS background linear-gradient that translates across the X-axis for a premium "shimmer" effect.
+4. Vary the widths of the text line skeletons (e.g., `w-3/4` for the first line, `w-1/2` for the second) so it looks natural.
+5. Ensure the skeleton structure perfectly matches the dimensions of the real component it is replacing to prevent layout shift when the real data loads.
+
+Technical Stack:
+- React
+- Tailwind CSS (purely CSS-based animation, no Framer Motion required).
+
+Provide the complete, copy-pasteable component.
