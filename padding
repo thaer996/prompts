@@ -1,0 +1,19 @@
+=========================================
+VERTICAL RHYTHM, SECTION PADDING & HIERARCHY (CRITICAL)
+=========================================
+To achieve a premium, high-end design, you must strictly enforce consistent vertical spacing (whitespace) and visual hierarchy across the entire website.
+
+Spacing & Padding Rules:
+1. Standardized Section Wrappers: Every major block of content must be wrapped in a semantic `<section>` tag.
+2. Fluid Vertical Section Padding: Do NOT use random, hardcoded margins or paddings (e.g., avoid arbitrarily mixing py-12, mt-10, mb-16). Use CSS `clamp()` within Tailwind to create fluid section padding that scales perfectly.
+   - Apply this to EVERY section: `py-[clamp(4rem,10vw,8rem)]`
+   - This ensures massive, luxurious breathing room on desktop and tight, appropriate spacing on mobile.
+3. The Hero Section Exception: The very first section must account for the sticky navbar. Use `min-h-screen` and add `pt-` equivalent to the navbar's height so content is perfectly centered.
+4. Section Header to Content Spacing (Crucial Hierarchy): 
+   - Every section usually has a Header (H2 Title + Subtitle) and a Body (Cards, Grid, Text). 
+   - The vertical gap between the Header wrapper and the Body wrapper must be distinct, consistent, and smaller than the section padding, but larger than the content gaps.
+   - Enforce this strictly by wrapping the Header and Body in a flex container: `flex flex-col gap-[clamp(2.5rem,5vw,4rem)]` OR by applying a consistent bottom margin to the header wrapper: `mb-[clamp(2.5rem,5vw,4rem)]`.
+5. Internal Spacing (Gaps): Inside the content body (e.g., a grid of features), use smaller, mathematically perfect gaps like `gap-6 lg:gap-8`.
+6. No Collapsing Margins: Rely exclusively on Padding (`py-`) and Flex/Grid Gaps (`gap-`) for layout structure. Avoid vertical Margins (`my-`) on layout wrappers to prevent unpredictable margin-collapsing bugs.
+
+Your generated code must reflect these premium spacing rules on every layout.
