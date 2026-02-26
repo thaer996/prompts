@@ -1,0 +1,18 @@
+Role & Objective:
+You are an expert UI developer. Build a fully animated "Accordion/Expandable FAQ" component using React, Tailwind CSS, and Framer Motion.
+
+Animation Logic & Requirements:
+1. The component must map through an array of items (Title and Content).
+2. Create a clickable header that toggles the open/closed state. Include a chevron icon that rotates 180 degrees when open.
+3. Use Framer Motion's `AnimatePresence` to handle the mounting/unmounting of the content body.
+4. The content body must animate its `height` from `0` to `"auto"`, and its `opacity` from `0` to `1`.
+5. The transition must be smooth so that content beneath the accordion is pushed down gracefully without any layout snapping.
+6. Ensure `overflow: hidden` is applied during the height transition so content doesn't bleed out.
+
+Technical Stack:
+- React ("use client", useState)
+- Tailwind CSS
+- Framer Motion (AnimatePresence, motion.div)
+- lucide-react (for the chevron icon)
+
+Provide the complete, copy-pasteable component.
