@@ -1,183 +1,65 @@
-
-You are an expert professional full-stack website developer. Build me a premium, modern, fully responsive website using HTML, CSS, and JavaScript 
+You are an expert professional full-stack website developer. Build me a premium, modern, fully responsive website. Depending on the project requirements, you may use modern frameworks and libraries such as React, Next.js, TypeScript, and Three.js, or use vanilla HTML/CSS/JS if specifically requested.
 
 GENERAL GOAL
-Create a high-end, polished, premium-quality website structure that I can reuse for different projects. I will provide the section names, navbar items, inspiration images, and additional animations when needed.
-
-The website must feel smooth, modern, elegant, and professional.
+Create a high-end, polished, premium-quality website structure that I can reuse for different projects. I will provide the section names, navbar items, inspiration images, and additional animations when needed. The website must feel smooth, modern, elegant, and professional.
 
 CORE REQUIREMENTS
 
-RESPONSIVENESS & LAYOUT
-
-• The website must be fully responsive across:
-  - Desktop
-  - Tablet
-  - Mobile
-
+RESPONSIVENESS & FLUID LAYOUT
+• The website must be 100% fluid and fully responsive across absolutely ALL screen sizes:
+  - Ultrawide monitors
+  - Standard Desktops & Laptops
+  - Tablets (Portrait and Landscape)
+  - All Mobile devices (including small screens)
 • Prevent ALL horizontal overflow using:
-  - box-sizing: border-box
-  - overflow-x: hidden on body and html
-  - Proper responsive widths
-  - Flexible layouts (no fixed widths that break layout)
+  - `box-sizing: border-box;` globally.
+  - `overflow-x: hidden;` on the main wrapper/body.
+• Use fluid layouts (Flexbox, CSS Grid, or Tailwind/CSS equivalents). DO NOT use rigid fixed widths; use responsive units (%, vw, vh, rem) and max-width containers.
+• Ensure proper left and right padding/margins on all screen sizes so content never touches the screen edges.
 
-• Ensure proper left and right padding on all screen sizes
-• Ensure content never exceeds viewport width
-• Use fluid layouts with Flexbox and CSS Grid
-• Ensure perfect mobile compatibility
-• Ensure Safari and iOS compatibility
+RESPONSIVE MEDIA & IMAGES (CRITICAL)
+• All images, videos, 3D canvases (Three.js), and media MUST be strictly responsive.
+• Apply `max-width: 100%;` and `height: auto;` globally to images so they scale down effortlessly.
+• Images must never be half-shown, clipped awkwardly, or stretch outside their containers.
+• Use `object-fit: cover;` or `object-fit: contain;` where appropriate to maintain perfect aspect ratios without distortion.
 
-STICKY NAVBAR
-
-• Create a sticky navbar fixed at the top
-• Navbar must smoothly transition when scrolling:
-  - Background color transition OR
-  - Glassmorphism blur effect OR
-  - Opacity transition
-
+STICKY & RESPONSIVE NAVBAR
+• Create a sticky/fixed navbar at the top that is perfectly responsive across ALL breakpoints.
+• Navbar must smoothly transition when scrolling (e.g., Background color transition, Glassmorphism blur effect).
 • Navbar must include:
-  - Logo placeholder
-  - Navigation links (I will provide section names)
-  - Mobile hamburger menu
-
-• Mobile menu requirements:
-  - Smooth open/close animation
-  - No layout shifting
-  - Clean and modern design
-
-• Highlight active section while scrolling (optional but preferred)
+  - Logo placeholder (responsive size).
+  - Navigation links.
+  - Mobile hamburger menu.
+• Desktop/Tablet behavior: Trigger the mobile menu before the navigation links collide with the logo on medium-sized screens (like iPads) to prevent layout breaks.
+• Mobile menu requirements: Smooth open/close animation, no layout shifting, clean full-screen or slide-out design.
+• Highlight the active section while scrolling.
 
 SMOOTH SCROLLING
-
-• Enable smooth scrolling across the entire website
-• All anchor links must scroll smoothly
-• Scrolling must feel premium and fluid
+• Enable smooth scrolling across the entire website.
+• All anchor links must scroll smoothly to their target sections, accounting for the height of the sticky navbar (e.g., using `scroll-padding-top`).
 
 HOVER EFFECTS
-
-Apply premium, subtle hover effects to:
-
-• Buttons
-• Cards
-• Images
-• Navbar links
-• Icons
-• Interactive elements
-
-Hover effects may include:
-
-• Smooth color transitions
-• Subtle scale effects
-• Elevation (translateY)
-• Shadow transitions
-• Opacity transitions
-
-Effects must be elegant and not excessive.
+• Apply premium, subtle hover effects to Buttons, Cards, Images, Navbar links, and Icons.
+• Effects may include: Smooth color transitions, subtle scaling, elevation (translateY), shadow transitions, and opacity changes.
+• Effects must be elegant, professional, and not excessive. Use proper transition timings.
 
 SCROLL-TRIGGERED REVEAL ANIMATIONS
+• Implement scroll-triggered animations (using Intersection Observer in vanilla JS, or libraries like Framer Motion if using React/Next.js).
+• When elements enter the viewport, animate them using opacity transitions (fade in), vertical motion (translateY), and smooth easing.
+• Animations must be high-performance, fast, and not laggy.
+• Animations MUST NOT break the layout or cause horizontal overflow (apply hidden overflow to parent containers if translating elements from the side).
 
-Use the Intersection Observer API to implement scroll-triggered animations.
-
-When elements enter the viewport, animate them using:
-
-• Opacity transition (fade in)
-• Vertical motion (translateY)
-• Optional parallax movement
-• Smooth easing
-
-Animations must be:
-
-• Smooth
-• Fast
-• Not laggy
-• Not break layout
-• Not cause horizontal overflow
-
-Use transform and opacity for best performance.
-
-COLOR SYSTEM
-
-I will provide an inspiration image.
-
-You must:
-
-• Extract the dominant color palette and visual mood
-• Apply colors consistently across:
-  - Background
-  - Text
-  - Buttons
-  - Cards
-  - Navbar
-  - Borders
-  - Hover states
-  - Accents
-
-Maintain a professional and harmonious color system.
-
-ADDITIONAL ANIMATIONS
-
-For each project, I may provide additional animation snippets.
-
-You must:
-
-• Integrate them cleanly into the existing code
-• Ensure they do not break responsiveness
-• Ensure they do not break layout
-• Ensure they do not break existing animations
-
-SECTIONS & NAVBAR MENU
-
-I will provide:
-
-• Section names
-• Navbar menu items
-• Section structure
-
-You must build the layout according to what I provide.
-
-The structure must be modular and reusable.
-
-GENERAL QUALITY STANDARDS
-
-The website must feel:
-
-• Premium
-• Modern
-• Clean
-• Elegant
-• Professional
-• High-end
-
-Use:
-
-• Modern typography
-• Generous spacing
-• Clean card layouts
-• Subtle shadows
-• Subtle gradients when appropriate
-• Glassmorphism when appropriate
-• Smooth transitions
-• Consistent spacing rhythm
+COLOR SYSTEM & STYLING
+• Extract the dominant color palette and visual mood from my instructions.
+• Apply colors consistently using CSS Variables, Tailwind config, or styled-components.
+• Maintain a professional, accessible, and harmonious color contrast across backgrounds, text, buttons, and hover states.
 
 TECHNICAL REQUIREMENTS
+• Architecture: Use a clean, modular, component-based architecture (especially if using React/Next.js).
+• TypeScript (If used): Ensure strict typing, well-defined interfaces/types for all props and state.
+• CSS: Use modern CSS3, CSS Modules, or Tailwind CSS (whichever fits the stack best).
+• 3D/Canvas (If used): If utilizing Three.js/React Three Fiber, ensure the canvas is responsive, gracefully degrades on low-end devices, and resizes properly on window resize events.
+• Ensure no console errors, semantic HTML tags, and production-level code quality.
 
-• Use semantic HTML5
-• Use modern CSS3
-• Use vanilla JavaScript (no frameworks unless specified)
-• Use Intersection Observer for scroll animations
-• Use efficient and clean code
-• Ensure no console errors
-• Ensure production-level code quality
-
-CRITICAL REQUIREMENTS
-
-• Everything must be inside ONE HTML file
-• No horizontal scroll
-• Fully responsive
-• Smooth animations
-• Premium visual quality
-• Clean, readable, professional code
-
-FINAL GOAL
-
-Deliver a complete premium modern website template that is reusable, fully responsive, animation-rich, and production-quality.
+DELIVERABLES
+Provide the complete, robust code for the requested structure. If using a framework like Next.js, provide the code divided clearly by files/components (e.g., Navbar component, Hero component, Layout file) so I can easily copy and paste them into my project directory.
