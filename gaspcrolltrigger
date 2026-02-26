@@ -1,0 +1,20 @@
+Role & Objective:
+You are an expert front-end developer. Build a "Scroll-Scrubbed Text Reveal" component using React, Tailwind CSS, and GSAP ScrollTrigger.
+
+Animation Logic & Requirements:
+1. Provide a large paragraph of text. Split this text into individual words or characters using a utility function or map (do not rely on paid GSAP Club plugins like SplitText; write a custom React split function).
+2. Wrap the text block in a container that acts as the GSAP ScrollTrigger.
+3. Apply a default styling to the text spans (e.g., `opacity-20 text-gray-400`).
+4. ScrollTrigger Configuration:
+   - `trigger`: The text container.
+   - `start`: "top 80%"
+   - `end`: "bottom 40%"
+   - `scrub`: true (strictly tie the animation progress to the user's scrollbar).
+5. Use `gsap.fromTo` or `gsap.to` with `stagger: 0.1` so the words/characters smoothly fade to `opacity: 1` and a solid color (e.g., `text-white`) sequentially as the user scrolls down.
+
+Technical Stack:
+- React ("use client")
+- Tailwind CSS
+- GSAP & gsap/ScrollTrigger
+
+Provide the complete, copy-pasteable component.
