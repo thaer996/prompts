@@ -1,1 +1,183 @@
 
+You are an expert professional full-stack website developer. Build me a premium, modern, fully responsive website using HTML, CSS, and JavaScript 
+
+GENERAL GOAL
+Create a high-end, polished, premium-quality website structure that I can reuse for different projects. I will provide the section names, navbar items, inspiration images, and additional animations when needed.
+
+The website must feel smooth, modern, elegant, and professional.
+
+CORE REQUIREMENTS
+
+RESPONSIVENESS & LAYOUT
+
+• The website must be fully responsive across:
+  - Desktop
+  - Tablet
+  - Mobile
+
+• Prevent ALL horizontal overflow using:
+  - box-sizing: border-box
+  - overflow-x: hidden on body and html
+  - Proper responsive widths
+  - Flexible layouts (no fixed widths that break layout)
+
+• Ensure proper left and right padding on all screen sizes
+• Ensure content never exceeds viewport width
+• Use fluid layouts with Flexbox and CSS Grid
+• Ensure perfect mobile compatibility
+• Ensure Safari and iOS compatibility
+
+STICKY NAVBAR
+
+• Create a sticky navbar fixed at the top
+• Navbar must smoothly transition when scrolling:
+  - Background color transition OR
+  - Glassmorphism blur effect OR
+  - Opacity transition
+
+• Navbar must include:
+  - Logo placeholder
+  - Navigation links (I will provide section names)
+  - Mobile hamburger menu
+
+• Mobile menu requirements:
+  - Smooth open/close animation
+  - No layout shifting
+  - Clean and modern design
+
+• Highlight active section while scrolling (optional but preferred)
+
+SMOOTH SCROLLING
+
+• Enable smooth scrolling across the entire website
+• All anchor links must scroll smoothly
+• Scrolling must feel premium and fluid
+
+HOVER EFFECTS
+
+Apply premium, subtle hover effects to:
+
+• Buttons
+• Cards
+• Images
+• Navbar links
+• Icons
+• Interactive elements
+
+Hover effects may include:
+
+• Smooth color transitions
+• Subtle scale effects
+• Elevation (translateY)
+• Shadow transitions
+• Opacity transitions
+
+Effects must be elegant and not excessive.
+
+SCROLL-TRIGGERED REVEAL ANIMATIONS
+
+Use the Intersection Observer API to implement scroll-triggered animations.
+
+When elements enter the viewport, animate them using:
+
+• Opacity transition (fade in)
+• Vertical motion (translateY)
+• Optional parallax movement
+• Smooth easing
+
+Animations must be:
+
+• Smooth
+• Fast
+• Not laggy
+• Not break layout
+• Not cause horizontal overflow
+
+Use transform and opacity for best performance.
+
+COLOR SYSTEM
+
+I will provide an inspiration image.
+
+You must:
+
+• Extract the dominant color palette and visual mood
+• Apply colors consistently across:
+  - Background
+  - Text
+  - Buttons
+  - Cards
+  - Navbar
+  - Borders
+  - Hover states
+  - Accents
+
+Maintain a professional and harmonious color system.
+
+ADDITIONAL ANIMATIONS
+
+For each project, I may provide additional animation snippets.
+
+You must:
+
+• Integrate them cleanly into the existing code
+• Ensure they do not break responsiveness
+• Ensure they do not break layout
+• Ensure they do not break existing animations
+
+SECTIONS & NAVBAR MENU
+
+I will provide:
+
+• Section names
+• Navbar menu items
+• Section structure
+
+You must build the layout according to what I provide.
+
+The structure must be modular and reusable.
+
+GENERAL QUALITY STANDARDS
+
+The website must feel:
+
+• Premium
+• Modern
+• Clean
+• Elegant
+• Professional
+• High-end
+
+Use:
+
+• Modern typography
+• Generous spacing
+• Clean card layouts
+• Subtle shadows
+• Subtle gradients when appropriate
+• Glassmorphism when appropriate
+• Smooth transitions
+• Consistent spacing rhythm
+
+TECHNICAL REQUIREMENTS
+
+• Use semantic HTML5
+• Use modern CSS3
+• Use vanilla JavaScript (no frameworks unless specified)
+• Use Intersection Observer for scroll animations
+• Use efficient and clean code
+• Ensure no console errors
+• Ensure production-level code quality
+
+CRITICAL REQUIREMENTS
+
+• Everything must be inside ONE HTML file
+• No horizontal scroll
+• Fully responsive
+• Smooth animations
+• Premium visual quality
+• Clean, readable, professional code
+
+FINAL GOAL
+
+Deliver a complete premium modern website template that is reusable, fully responsive, animation-rich, and production-quality.
