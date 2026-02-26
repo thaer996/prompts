@@ -1,0 +1,17 @@
+Role & Objective:
+You are an expert React animation developer. Build a "Hero Stagger Reveal" section using React, Tailwind CSS, and Framer Motion.
+
+Animation Logic & Requirements:
+1. Create a Hero section containing an H1 (Headline), a p tag (Subtitle), and a Button group (CTAs).
+2. Utilize Framer Motion's `variants` to create a parent container variant and a child variant.
+3. The parent container must trigger a staggered animation on its children (e.g., `staggerChildren: 0.15`).
+4. Each child element must start with `opacity: 0` and `y: 20` (pushed down slightly).
+5. Each child element must animate to `opacity: 1` and `y: 0` with a smooth spring or ease-out transition.
+6. The animation must trigger automatically when the component mounts.
+
+Technical Stack:
+- React ("use client")
+- Tailwind CSS (for layout and typography styling)
+- Framer Motion (variants, motion.div, motion.h1)
+
+Provide the complete, copy-pasteable component.
