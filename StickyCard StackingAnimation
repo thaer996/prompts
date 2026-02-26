@@ -1,0 +1,18 @@
+Role & Objective:
+You are an expert React developer. Build a "Sticky Card Stacking" scroll animation component using React, Tailwind CSS, and Framer Motion.
+
+Animation Logic & Requirements:
+1. The layout must consist of a parent container with a large height (e.g., `h-[300vh]`) to allow for scrolling.
+2. Inside, map through an array of card data. Each card wrapper must have `position: sticky` and `top: [X]px` so they stick to the viewport as the user scrolls.
+3. Use Framer Motion's `useScroll` and `useTransform` hooks.
+4. As Card B scrolls up and sticks over Card A:
+   - Card A must slightly scale down (e.g., scale from 1 to 0.95).
+   - Card A must slightly darken (e.g., using a black overlay with opacity mapped to scroll progress).
+5. Ensure the math for the `useTransform` input ranges accounts for the index of each card so they animate sequentially.
+
+Technical Stack:
+- React (Next.js App Router compatible, use "use client")
+- Tailwind CSS (for layout, sticky positioning, and styling)
+- Framer Motion (strictly for the scroll-linked scale and opacity logic)
+
+Provide the complete, copy-pasteable component.
