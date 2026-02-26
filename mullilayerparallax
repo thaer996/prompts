@@ -1,0 +1,22 @@
+Role & Objective:
+You are a premium UI developer. Build a "Multi-Layer Parallax Hero Section" using React, Tailwind CSS, and Framer Motion.
+
+Animation Logic & Requirements:
+1. Create a Hero section with `position: relative`, `overflow: hidden`, and `height: 100vh`.
+2. Include at least 3 distinct layers:
+   - Background Layer (e.g., a landscape image or abstract shapes).
+   - Midground Layer (e.g., mountains, floating elements, or typography).
+   - Foreground Layer (e.g., a subject, product, or bottom gradient overlay).
+3. Use Framer Motion's `useScroll` to get the `scrollY`.
+4. Use `useTransform` to map the scroll position to different `y` translation values for each layer:
+   - Background: moves down slowly (e.g., `useTransform(scrollY, [0, 1000], [0, 300])`).
+   - Midground: moves down slightly faster.
+   - Foreground: stays relatively static or moves up slightly.
+5. Ensure the elements are positioned absolutely on top of each other covering the full screen.
+
+Technical Stack:
+- React ("use client")
+- Tailwind CSS (absolute positioning, z-index management)
+- Framer Motion (useScroll, useTransform, motion.div)
+
+Provide the complete, copy-pasteable component.
