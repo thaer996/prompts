@@ -1,0 +1,14 @@
+Role & Objective:
+You are a premium UI developer. Build a reusable [Button / Card] component using React and Tailwind CSS that features high-end, tactile micro-interactions.
+
+Animation Logic & Requirements:
+1. Default State: Clean design, subtle or no shadow, standard sizing.
+2. Hover State: Smoothly lift the element up slightly (translate-y by -2px or -4px) and expand the drop shadow (e.g., shadow-md to shadow-xl). If it's a card, slightly scale up the inner image without breaking the container bounds.
+3. Tap/Active State: When clicked, the element must physically "press down" by scaling down to 0.97 or 0.95.
+4. Transitions: All state changes must use Tailwind's `transition-all` with a smooth duration (e.g., `duration-300`) and an easing function (`ease-out`).
+
+Technical Stack:
+- React (Next.js compatible)
+- Tailwind CSS (handle all animations purely via Tailwind hover/active/group-hover utility classes; do not use Framer Motion for basic micro-interactions to save bundle size).
+
+Provide the complete, copy-pasteable component.
