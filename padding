@@ -1,19 +1,25 @@
 =========================================
-VERTICAL RHYTHM, SECTION PADDING & HIERARCHY (CRITICAL)
+GLOBAL SPACING & ANTI-DOUBLE-PADDING PROTOCOL
 =========================================
-To achieve a premium, high-end design, you must strictly enforce consistent vertical spacing (whitespace) and visual hierarchy across the entire website.
+You must strictly prevent massive, unnatural gaps (the "Double-Padding Void") between sections. Follow these absolute rules for Vertical Rhythm:
 
-Spacing & Padding Rules:
-1. Standardized Section Wrappers: Every major block of content must be wrapped in a semantic `<section>` tag.
-2. Fluid Vertical Section Padding: Do NOT use random, hardcoded margins or paddings (e.g., avoid arbitrarily mixing py-12, mt-10, mb-16). Use CSS `clamp()` within Tailwind to create fluid section padding that scales perfectly.
-   - Apply this to EVERY section: `py-[clamp(4rem,10vw,8rem)]`
-   - This ensures massive, luxurious breathing room on desktop and tight, appropriate spacing on mobile.
-3. The Hero Section Exception: The very first section must account for the sticky navbar. Use `min-h-screen` and add `pt-` equivalent to the navbar's height so content is perfectly centered.
-4. Section Header to Content Spacing (Crucial Hierarchy): 
-   - Every section usually has a Header (H2 Title + Subtitle) and a Body (Cards, Grid, Text). 
-   - The vertical gap between the Header wrapper and the Body wrapper must be distinct, consistent, and smaller than the section padding, but larger than the content gaps.
-   - Enforce this strictly by wrapping the Header and Body in a flex container: `flex flex-col gap-[clamp(2.5rem,5vw,4rem)]` OR by applying a consistent bottom margin to the header wrapper: `mb-[clamp(2.5rem,5vw,4rem)]`.
-5. Internal Spacing (Gaps): Inside the content body (e.g., a grid of features), use smaller, mathematically perfect gaps like `gap-6 lg:gap-8`.
-6. No Collapsing Margins: Rely exclusively on Padding (`py-`) and Flex/Grid Gaps (`gap-`) for layout structure. Avoid vertical Margins (`my-`) on layout wrappers to prevent unpredictable margin-collapsing bugs.
+1. The Hero-to-Next-Section Transition (CRITICAL):
+   - If the first section (Hero) is full-height (e.g., `min-h-screen` or `h-screen`), it naturally pushes the next section down to the fold.
+   - DO NOT apply heavy `pt-` (padding-top) or `mt-` (margin-top) to the section immediately following a full-height Hero.
+   - The second section should start with a significantly reduced top padding (or none at all) to maintain a visual connection with the Hero section.
 
-Your generated code must reflect these premium spacing rules on every layout.
+2. Standard Section Spacing (Color-Block Safe):
+   - To ensure sections with different background colors touch each other seamlessly, use Padding (`py`), NOT Margin (`my`).
+   - Use a strictly controlled fluid clamp for standard sections: `py-[clamp(3rem,5vw,5rem)]`.
+   - NEVER use margins (`mt-`, `mb-`) on main `<section>` wrappers. Margins collapse and stack unpredictably. 
+
+3. Section Header vs. Content Proportions:
+   - The gap between a section's Title/Header and its inner Grid/Cards MUST be noticeably smaller than the padding between sections.
+   - Use Flex/Grid gaps for internal spacing: `flex flex-col gap-[clamp(2rem,4vw,3rem)]` to separate the section header from the content body.
+
+4. Component-Level Spacing:
+   - Inside grids or flex rows (e.g., spacing between individual cards or text blocks), use tight, mathematically consistent gaps: `gap-4`, `gap-6`, or `gap-8`.
+   - Do not use arbitrary padding inside structural grids unless specifically creating card interiors.
+
+Summary of Visual Hierarchy:
+[Gap between Sections] > [Gap between Section Title & Grid] > [Gap between Cards in Grid]
