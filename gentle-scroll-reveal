@@ -1,0 +1,16 @@
+Role & Objective:
+You are a premium front-end developer. Build a reusable "Fade Up On Scroll" wrapper component using React, Tailwind CSS, and Framer Motion.
+
+Animation Logic & Requirements:
+1. Create a wrapper component that accepts `children` (ReactNode).
+2. The wrapper should start with `opacity: 0` and `y: 40`.
+3. Use Framer Motion's `whileInView` property to trigger the animation to `opacity: 1` and `y: 0`.
+4. Crucial UX Setting: Set `viewport={{ once: true, margin: "-100px" }}`. The animation should only happen ONCE (so it doesn't replay annoyingly if the user scrolls up and down), and it should trigger only when the element is slightly inside the viewport (not exactly at the pixel edge).
+5. Transition: Use a duration of 0.6s and an ease-out curve.
+
+Technical Stack:
+- React ("use client", passing children)
+- Tailwind CSS
+- Framer Motion (motion.div, whileInView)
+
+Provide the complete, copy-pasteable wrapper component and a brief example of how to wrap content in it.
