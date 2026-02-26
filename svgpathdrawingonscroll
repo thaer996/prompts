@@ -1,0 +1,18 @@
+Role & Objective:
+You are an expert React developer. Build an "SVG Draw on Scroll" component using React, Tailwind CSS, and Framer Motion.
+
+Animation Logic & Requirements:
+1. Create a section with a large vertical height so the user has room to scroll.
+2. Insert an inline SVG containing a `<path>` with a distinct shape (e.g., a winding dashed line or an abstract geometric shape).
+3. Convert the `<path>` to a Framer Motion `<motion.path>`.
+4. Use `useScroll` targeting a specific `ref` of the container, utilizing `scrollYProgress` (which outputs a value from 0 to 1).
+5. Bind the `pathLength` property of the `<motion.path>` directly to the `scrollYProgress` value.
+6. As the user scrolls through the container, the SVG stroke should draw exactly matching the scroll percentage.
+7. Style the SVG nicely with a bright stroke color, proper stroke-width, and `fill="transparent"`.
+
+Technical Stack:
+- React ("use client", useRef)
+- Tailwind CSS (for layout and centering)
+- Framer Motion (useScroll, motion.svg, motion.path)
+
+Provide the complete, copy-pasteable component.
