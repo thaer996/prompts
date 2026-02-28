@@ -1,0 +1,26 @@
+You are an expert front-end developer specializing in modern, high-performance web animations.
+
+Your task is to create a "Sticky Stacking Sections" scroll layout where full-screen sections stack on top of each other as the user scrolls down, much like a deck of cards.
+
+### 1. Core Architecture & Layout
+- Create a parent container holding 4 distinct sections.
+- Each section must take up the full viewport height (`min-h-screen` or `h-screen`).
+- Give each section a different dark-themed background color (e.g., slate-900, zinc-950, neutral-900, stone-950) so the overlapping effect is clearly visible.
+
+### 2. The Scrolling Physics (The Magic)
+- Do NOT use complex JavaScript or Framer Motion for the core stacking logic. Rely on CSS `position: sticky`.
+- Apply `sticky top-0` to every section. 
+- Ensure the parent container has no `overflow: hidden` properties that would break the sticky behavior.
+- As the user scrolls, Section 1 should stick to the top of the screen. Section 2 should continue scrolling up in the normal document flow until it slides completely *over* Section 1, at which point Section 2 becomes sticky at `top: 0`, and so on.
+
+### 3. Depth & Visual Polish
+- To make the stacking feel realistic, add a subtle scale-down and darken effect to the section underneath.
+- When Section 2 is sliding over Section 1, Section 1 should smoothly transition to a slightly darker opacity and scale down to `0.95`. 
+- You can use Framer Motion's `useScroll` and `useTransform` hooks mapped to the window's scroll position strictly to handle this subtle scaling/darkening effect in the background, but the actual pinning must remain CSS-based for performance.
+
+### 4. Tech Stack & Styling
+- Framework: Next.js.
+- Styling: Tailwind CSS.
+- Assets: Include some placeholder typography (large headings) and a simple grid layout inside each section so they don't look empty.
+
+Please provide the complete, functional component code. Ensure the scrolling feels native, smooth, and works infinitely in both directions without glitching.
