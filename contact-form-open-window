@@ -1,0 +1,23 @@
+You are an expert Next.js and front-end developer specializing in Framer Motion and modern UI/UX.
+
+Your task is to build a reusable "Fade In/Out" scroll wrapper and a smooth "Contact Form Modal" for a dark-themed personal portfolio website.
+
+### 1. Scroll-Triggered Fade (The Wrapper)
+- Create a reusable React component called `FadeInSection`.
+- Use Framer Motion (`motion.div`). 
+- **Animation Logic:** Set `initial={{ opacity: 0, y: 30 }}` and `whileInView={{ opacity: 1, y: 0 }}`.
+- **The Magic Prop:** You MUST set `viewport={{ once: false, amount: 0.2 }}`. This ensures the section fades *out* when the user scrolls past it, and fades back *in* when they scroll back to it. Include a smooth transition (`duration: 0.6, ease: "easeOut"`).
+
+### 2. The Contact Form Modal (Click-Triggered)
+- Create a `ContactModal` component managed by a boolean state (`isOpen`, `setIsOpen`).
+- **Mounting Animation:** Wrap the modal in Framer Motion's `<AnimatePresence>`. 
+- **The Overlay:** When open, render a full-screen fixed background (`fixed inset-0 z-50 bg-black/60 backdrop-blur-md`). It should animate from `opacity: 0` to `opacity: 1`.
+- **The Form Container:** Inside the overlay, center a dark glassmorphism card (`bg-zinc-900/80 border border-zinc-800 rounded-2xl`). Animate it sliding slightly up and fading in (`initial={{ opacity: 0, scale: 0.95, y: 20 }}`, `animate={{ opacity: 1, scale: 1, y: 0 }}`).
+- **The Close Button:** Place an absolute positioned "X" button (use a simple SVG or Lucide icon) in the top right corner of the form card. Clicking this must trigger the close state, allowing `<AnimatePresence>` to smoothly reverse the animations before unmounting.
+
+### 3. Form UI & Styling
+- Inside the modal, include a clean, minimal contact form: Name, Email, and Message inputs.
+- Style the inputs with Tailwind CSS: dark backgrounds (`bg-zinc-950`), subtle borders, and a focus ring (`focus:ring-2 focus:ring-white/20`).
+- Include a sleek "Send Message" submit button.
+
+Provide the complete code for both components, plus an example of how to implement them together on a page (e.g., a trigger button that opens the modal, and a few dummy sections wrapped in the `FadeInSection`).
