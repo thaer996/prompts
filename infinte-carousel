@@ -1,0 +1,27 @@
+You are an expert Next.js front-end developer specializing in physics-based UI and 3D web animations.
+
+Your task is to build an "Interactive Infinite Tilted Marquee" component for the personal portfolio website of "THAER SH". The component must feature premium, buttery-smooth physics and a subtle isometric aesthetic.
+
+### 1. Core Architecture & Tech Stack
+- Framework: Next.js.
+- Styling: Tailwind CSS.
+- Animation: You MUST use Framer Motion. 
+- Content: Create a row of repeating premium project cards (use placeholder 3D animation project images and tech stack icons relevant to Next.js/Supabase). Duplicate the array seamlessly so it can scroll infinitely.
+
+### 2. The Geometric Tilt (-12 Degrees)
+- Wrap the entire carousel in a parent container with `overflow-hidden`.
+- Apply exactly `transform: rotate(-12deg)` to the inner carousel track. 
+- Ensure the parent container is extra wide (e.g., `120vw` to `150vw`) and repositioned with negative margins so the angled edges span the entire screen, leaving no empty background corners exposed.
+
+### 3. Interactive Physics & Slow Drift
+- Implement Framer Motion's `useMotionValue`, `useVelocity`, and `useAnimationFrame` to handle the movement.
+- Auto-Scroll Speed: Set the base velocity to `0.5` (or `-0.5`). It should feel like a very slow, ambient, and elegant drift.
+- Drag Interactions: Add `drag="x"`. 
+- Directional Logic: Track the user's drag direction. If they swipe left, update the direction state so the infinite auto-scroll seamlessly continues to the left. If they swipe right, it must auto-scroll to the right.
+- Momentum: When the user releases a drag, use their swipe velocity to temporarily speed up the scroll, then dampen it using a spring animation (`stiffness: 50`, `damping: 20`) until it smoothly settles back down to the `0.5` base velocity.
+
+### 4. Polish & Aesthetics
+- Add `cursor-grab` on hover and `cursor-grabbing` while dragging.
+- Give the cards a subtle dark-theme glassmorphism background, rounded corners, and a slight scale-up effect when hovered.
+
+Provide the complete, functional component code. Ensure the velocity logic and the math for the infinite wrap are cleanly separated and commented.
