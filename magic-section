@@ -1,28 +1,27 @@
 You are an expert Next.js front-end developer specializing in Framer Motion and fully responsive UI layouts.
 
-Your task is to build a "Scroll Reveal" section containing an Image and a Text Description. The layout and the direction of the animations must change strictly based on the user's screen size.
+Your task is to build a "Scroll Reveal" section containing an Image and a Text Description. The layout AND the Framer Motion animation directions must change dynamically based on the user's screen size. 
 
 ### 1. Core Architecture & Tech Stack
-- Framework: Next.js.
-- Styling: Tailwind CSS.
+- Framework: Next.js (use 'use client').
+- Styling: Tailwind CSS (use semantic colors ONLY, like `bg-background`, `text-foreground`, `text-muted-foreground`. Do NOT use hardcoded colors like zinc or white).
 - Animation: Framer Motion (`motion.div`).
 
-### 2. Layout Requirements
-- Create a parent container using Flexbox or CSS Grid.
-- **Mobile (< 768px):** The layout MUST stack vertically. The Image sits on top, and the Text description sits directly below it (`flex-col`).
-- **Desktop (>= 768px):** The layout must sit side-by-side. The Image is fixed on the Left side (e.g., 50% width), and the Text description is fixed on the Right side (e.g., 50% width) (`md:flex-row`).
+### 2. Layout Requirements (CSS)
+- Create a parent container: `flex flex-col md:flex-row items-center gap-8 md:gap-12`.
+- **Mobile (< 768px):** The layout stacks vertically. Image on top, Text beneath it.
+- **Desktop (>= 768px):** The layout is side-by-side. Image fixed on the Left (50%), Text on the Right (50%).
 
-### 3. Scroll Animation Physics 
-- Implement Framer Motion `whileInView` with `viewport={{ once: false, amount: 0.3 }}` so the animations replay dynamically as the user scrolls up and down the page.
-- Create dynamic Framer Motion variants that detect screen size (or use a `useMediaQuery` hook) to alter the slide-in directions:
-  - **Mobile Animations (Y-Axis):** - Image: Fades in and slides down from the Top (`initial={{ opacity: 0, y: -50 }}`, `whileInView={{ opacity: 1, y: 0 }}`).
-    - Text: Fades in and slides up from the Bottom (`initial={{ opacity: 0, y: 50 }}`, `whileInView={{ opacity: 1, y: 0 }}`).
-  - **Desktop Animations (X-Axis):** - Image (Left side): Fades in and slides in from the Left (`initial={{ opacity: 0, x: -50 }}`, `whileInView={{ opacity: 1, x: 0 }}`).
-    - Text (Right side): Fades in and slides in from the Right (`initial={{ opacity: 0, x: 50 }}`, `whileInView={{ opacity: 1, x: 0 }}`).
+### 3. Scroll Animation Physics & Responsive JavaScript (CRITICAL)
+- Because Framer Motion needs to know the screen size to change animation directions, you MUST create a custom React hook (e.g., `useMediaQuery` or a `useEffect` window resize listener) inside the component to track an `isMobile` boolean (true if window width < 768px).
+- Implement Framer Motion `whileInView={{ opacity: 1, x: 0 }}`.
+- **The Stability Prop:** Set `viewport={{ once: true, amount: 0.3 }}` so the animation only triggers the first time it enters the viewport and remains stable afterward.
+- **Dynamic X-Axis Logic:** Use a ternary operator based on `isMobile` for the `initial` state:
+  - **Image:** If `isMobile`, `initial={{ opacity: 0, x: 50 }}` (Slides in from the RIGHT). If desktop, `initial={{ opacity: 0, x: -50 }}` (Slides in from the LEFT).
+  - **Text Description:** If `isMobile`, `initial={{ opacity: 0, x: -50 }}` (Slides in from the LEFT). If desktop, `initial={{ opacity: 0, x: 50 }}` (Slides in from the RIGHT).
 
 ### 4. Polish & Aesthetics
-- Wrap the image in a container with hidden overflow (`rounded-2xl overflow-hidden`) and give it a subtle scale effect on hover. Use a high-quality Unsplash URL as a placeholder.
-- Give the text section clean, semantic typography: a heading (`text-3xl md:text-4xl font-bold`), a paragraph (`text-muted-foreground`), and a sleek CTA button.
-- Use semantic Tailwind colors (e.g., `bg-background`, `text-foreground`) so it inherits the global theme perfectly.
+- Wrap the image in a container with hidden overflow (`rounded-2xl overflow-hidden w-full`) and give the image itself a subtle scale effect on hover. Use a high-quality Unsplash URL as a placeholder.
+- Text section typography: a heading (`text-3xl md:text-4xl font-bold`), a paragraph (`text-muted-foreground`), and a CTA button using standard Tailwind classes.
 
-Provide the complete, functional Next.js component. Ensure the logic handling the switch from mobile (Y-axis sliding) to desktop (X-axis sliding) is robust and clearly commented.
+Provide the complete, functional Next.js component. Ensure the `isMobile` JavaScript logic that flips the X-axis animations is flawlessly implemented and commented.
