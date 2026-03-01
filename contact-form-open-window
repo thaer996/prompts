@@ -1,6 +1,6 @@
 You are an expert Next.js and front-end developer specializing in Framer Motion and modern UI/UX.
 
-Your task is to build a reusable "Fade In/Out" scroll wrapper and a smooth "Contact Form Modal" for a dark-themed personal portfolio website.
+Your task is to build a reusable "Fade In/Out" scroll wrapper and a smooth "Contact Form Modal" for a personal portfolio website. Do NOT use hardcoded colors (like zinc, slate, black, or white). You must use semantic Tailwind utility classes (e.g., bg-background, text-foreground, border-border) so the components inherit the global theme perfectly.
 
 ### 1. Scroll-Triggered Fade (The Wrapper)
 - Create a reusable React component called `FadeInSection`.
@@ -11,13 +11,13 @@ Your task is to build a reusable "Fade In/Out" scroll wrapper and a smooth "Cont
 ### 2. The Contact Form Modal (Click-Triggered)
 - Create a `ContactModal` component managed by a boolean state (`isOpen`, `setIsOpen`).
 - **Mounting Animation:** Wrap the modal in Framer Motion's `<AnimatePresence>`. 
-- **The Overlay:** When open, render a full-screen fixed background (`fixed inset-0 z-50 bg-black/60 backdrop-blur-md`). It should animate from `opacity: 0` to `opacity: 1`.
-- **The Form Container:** Inside the overlay, center a dark glassmorphism card (`bg-zinc-900/80 border border-zinc-800 rounded-2xl`). Animate it sliding slightly up and fading in (`initial={{ opacity: 0, scale: 0.95, y: 20 }}`, `animate={{ opacity: 1, scale: 1, y: 0 }}`).
-- **The Close Button:** Place an absolute positioned "X" button (use a simple SVG or Lucide icon) in the top right corner of the form card. Clicking this must trigger the close state, allowing `<AnimatePresence>` to smoothly reverse the animations before unmounting.
+- **The Overlay:** When open, render a full-screen fixed background (`fixed inset-0 z-50 bg-background/80 backdrop-blur-md`). It should animate from `opacity: 0` to `opacity: 1`.
+- **The Form Container:** Inside the overlay, center a glassmorphism card (`bg-card/90 text-card-foreground border border-border rounded-2xl shadow-lg`). Animate it sliding slightly up and fading in (`initial={{ opacity: 0, scale: 0.95, y: 20 }}`, `animate={{ opacity: 1, scale: 1, y: 0 }}`).
+- **The Close Button:** Place an absolute positioned "X" button (use a simple SVG or Lucide icon) in the top right corner of the form card. Style it to be subtle but accessible (`text-muted-foreground hover:text-foreground`). Clicking this must trigger the close state, allowing `<AnimatePresence>` to smoothly reverse the animations before unmounting.
 
 ### 3. Form UI & Styling
 - Inside the modal, include a clean, minimal contact form: Name, Email, and Message inputs.
-- Style the inputs with Tailwind CSS: dark backgrounds (`bg-zinc-950`), subtle borders, and a focus ring (`focus:ring-2 focus:ring-white/20`).
-- Include a sleek "Send Message" submit button.
+- Style the inputs with semantic Tailwind CSS: `bg-input/50`, `text-foreground`, subtle borders (`border-border`), and a focus ring (`focus:ring-2 focus:ring-ring focus:outline-none`).
+- Include a sleek "Send Message" submit button using theme-appropriate button classes (e.g., `bg-primary text-primary-foreground hover:bg-primary/90`).
 
 Provide the complete code for both components, plus an example of how to implement them together on a page (e.g., a trigger button that opens the modal, and a few dummy sections wrapped in the `FadeInSection`).
