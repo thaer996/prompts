@@ -1,0 +1,21 @@
+You are an expert Next.js and Framer Motion developer.
+
+Your task is to build a "Scroll-Triggered Text Highlight" component. As the user scrolls down, specific words in a paragraph should light up with a premium aesthetic highlight. When they scroll up, the highlight must disappear.
+
+### 1. Core Architecture
+- Framework: Next.js (use 'use client').
+- Styling: Tailwind CSS.
+- Animation: Framer Motion (`motion.span`).
+
+### 2. The Highlight Physics
+- Create a large paragraph of text. Wrap specific target words in a custom `<Highlight>` component.
+- The `<Highlight>` component must return a `motion.span`.
+- **Animation Logic:** - `initial`: Text is standard color (`text-muted-foreground`) with a transparent background.
+  - `whileInView`: Text changes color (e.g., `text-foreground` or a brand color) and the background gets an aesthetic color wash (e.g., `bg-primary/20` or a subtle gradient).
+- **The Two-Way Prop (CRITICAL):** You MUST set `viewport={{ once: false, margin: "-20% 0px -20% 0px" }}` on the `motion.span`. Setting `once: false` ensures the highlight reverts when the user scrolls back up.
+
+### 3. Aesthetics
+- Make the transition extremely smooth (`transition={{ duration: 0.4 }}`).
+- Apply `rounded-md px-1 mx-0.5` to the highlighted words so the background color looks like a clean marker stroke rather than a rigid box.
+
+Provide the complete, copy-pasteable component code.
