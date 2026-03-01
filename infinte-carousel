@@ -1,27 +1,28 @@
-You are an expert Next.js front-end developer specializing in physics-based UI and 3D web animations.
+You are an expert Next.js front-end developer specializing in physics-based UI and web animations.
 
-Your task is to build an "Interactive Infinite Tilted Marquee" component for the personal portfolio website of "THAER SH". The component must feature premium, buttery-smooth physics and a subtle isometric aesthetic.
+Your task is to build a fully responsive "Interactive Infinite Horizontal Marquee" component for the personal portfolio website of "THAER SH". The component must feature premium, buttery-smooth physics and adapt flawlessly to mobile, tablet, and desktop screens.
 
 ### 1. Core Architecture & Tech Stack
 - Framework: Next.js.
-- Styling: Tailwind CSS.
+- Styling: Tailwind CSS. Use extensive responsive prefixes (`sm:`, `md:`, `lg:`).
 - Animation: You MUST use Framer Motion. 
 - Content: Create a row of repeating premium project cards (use placeholder 3D animation project images and tech stack icons relevant to Next.js/Supabase). Duplicate the array seamlessly so it can scroll infinitely.
 
-### 2. The Geometric Tilt (-12 Degrees)
-- Wrap the entire carousel in a parent container with `overflow-hidden`.
-- Apply exactly `transform: rotate(-12deg)` to the inner carousel track. 
-- Ensure the parent container is extra wide (e.g., `120vw` to `150vw`) and repositioned with negative margins so the angled edges span the entire screen, leaving no empty background corners exposed.
+### 2. Layout & Responsive Sizing
+- Wrap the entire carousel in a standard full-width parent container (`w-full overflow-hidden`).
+- Ensure the inner track uses a flex layout to align the items perfectly horizontally (`flex flex-row items-center`).
+- Responsive Cards: The project cards must resize based on the viewport. Make them take up a larger portion of the screen on mobile (e.g., `w-[75vw] h-[40vh]`), scaling to standard sizes on larger screens (e.g., `md:w-[45vw] md:h-[50vh]`, `lg:w-[25vw] lg:h-[60vh]`).
 
-### 3. Interactive Physics & Slow Drift
+### 3. Interactive Physics & STRICT Directional Logic
 - Implement Framer Motion's `useMotionValue`, `useVelocity`, and `useAnimationFrame` to handle the movement.
-- Auto-Scroll Speed: Set the base velocity to `0.5` (or `-0.5`). It should feel like a very slow, ambient, and elegant drift.
-- Drag Interactions: Add `drag="x"`. 
-- Directional Logic: Track the user's drag direction. If they swipe left, update the direction state so the infinite auto-scroll seamlessly continues to the left. If they swipe right, it must auto-scroll to the right.
-- Momentum: When the user releases a drag, use their swipe velocity to temporarily speed up the scroll, then dampen it using a spring animation (`stiffness: 50`, `damping: 20`) until it smoothly settles back down to the `0.5` base velocity.
+- Auto-Scroll Speed: Set the base velocity to `0.5`. It should feel like a very slow, ambient, and elegant drift.
+- **The Direction State (CRITICAL):** Create a React `useRef` or state to track the `direction` multiplier (default to `-1` for left or `1` for right). Inside the `useAnimationFrame` loop, multiply the base velocity by this direction value.
+- **`onDragEnd` Handling:** You MUST make the auto-scroll follow the user's swipe. Use the `onDragEnd` property on the draggable element. Inside `onDragEnd(event, info)`, check the value of `info.offset.x`. If `info.offset.x > 0` (user swiped right), update the direction multiplier to `1`. If `info.offset.x < 0` (user swiped left), update the direction multiplier to `-1`. 
+- Momentum: When a drag is released, use `info.velocity.x` to temporarily speed up the scroll, then dampen it using a spring animation until it smoothly settles back to the `0.5` base velocity moving in the newly set direction.
+- Crucial Mobile Fix: Add `className="touch-pan-y"` to the draggable element to prevent horizontal swiping from locking vertical scrolling.
 
 ### 4. Polish & Aesthetics
 - Add `cursor-grab` on hover and `cursor-grabbing` while dragging.
-- Give the cards a subtle dark-theme glassmorphism background, rounded corners, and a slight scale-up effect when hovered.
+- Give the cards a subtle dark-theme glassmorphism background, responsive rounded corners (`rounded-xl md:rounded-2xl`), responsive gaps between cards (`gap-4 md:gap-8`), and a slight scale-up effect when hovered.
 
-Provide the complete, functional component code. Ensure the velocity logic and the math for the infinite wrap are cleanly separated and commented.
+Provide the complete, functional component code. Ensure the `onDragEnd` directional math is perfectly implemented and commented.
