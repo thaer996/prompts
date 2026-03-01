@@ -1,0 +1,22 @@
+You are an expert Next.js and React developer.
+
+Your task is to build an "Infinite Typewriter" component that types out a sentence, pauses, deletes it backwards character-by-character, and then types the next sentence in a continuous loop.
+
+### 1. Core Architecture
+- Framework: Next.js (use 'use client').
+- Styling: Tailwind CSS.
+- Do NOT use heavy third-party typewriter libraries. Build this using React `useState` and `useEffect`.
+
+### 2. The Typing Physics
+- Create an array of strings to cycle through (e.g., ["Building Next.js Apps", "Designing 3D UI", "Scaling Supabase"]).
+- Use `useEffect` with `setTimeout` or `setInterval` to manage the typing state.
+- **The Loop:** 1. Type forward (add 1 character every ~100ms).
+  2. Pause at the end of the word for ~1500ms.
+  3. Delete backward (remove 1 character every ~50ms).
+  4. Move to the next word in the array and repeat.
+- Add a blinking cursor element (`|`) at the end of the text that blinks infinitely using pure CSS (`animate-pulse`).
+
+### 3. Aesthetics
+- Style the typed text with a distinct semantic color (e.g., `text-primary font-mono` or `text-blue-500`) to make it pop against the rest of the sentence.
+
+Provide the complete, copy-pasteable component code.
