@@ -1,0 +1,29 @@
+You are an expert Next.js front-end developer specializing in Framer Motion, fully responsive layouts, and RTL (Right-to-Left) language support.
+
+Your task is to build a "Direction-Aware Scroll Reveal" section (Image + Text) that adapts its animation and layout based on both screen size and the HTML `dir` attribute.
+
+### 1. Core Architecture & Tech Stack
+- Framework: Next.js.
+- Styling: Tailwind CSS.
+- Animation: Framer Motion (`motion.div`, `whileInView`).
+
+### 2. Layout & Responsiveness
+- Create a container using CSS Grid or Flexbox.
+- **Mobile (< 768px):** The layout MUST stack vertically. The Image sits on top, and the Text information sits directly below it. 
+- **Desktop (>= 768px):** The layout sits side-by-side (50% Image, 50% Text). 
+- Use Tailwind's logical properties (e.g., `gap`, `flex-row`, `flex-row-reverse`) or standard flex layouts so the text and image physically swap sides automatically when the parent HTML has `dir="rtl"`.
+
+### 3. Scroll Animation Physics (The Magic)
+- Implement Framer Motion `whileInView` with `viewport={{ once: false, amount: 0.3 }}` so it replays dynamically as the user scrubs up and down the page.
+- **Mobile Animations:** - Image: Fades in and slides down from the top (`initial={{ opacity: 0, y: -50 }}`).
+  - Text: Fades in and slides up from the bottom (`initial={{ opacity: 0, y: 50 }}`).
+- **Desktop Animations (Direction-Aware):** - Read the document direction or pass an `isRTL` boolean prop to the component.
+  - *If LTR (English):* Image slides in from the Left (`x: -50`), Text slides in from the Right (`x: 50`).
+  - *If RTL (Hebrew/Arabic):* The animation MUST flip. The element on the right side of the screen slides in from the Right (`x: 50`), and the element on the left side slides in from the Left (`x: -50`).
+
+### 4. Polish & Aesthetics
+- Wrap the image in a rounded container with hidden overflow (`rounded-2xl overflow-hidden`) and give it a subtle scale effect on hover.
+- Give the text section clean, semantic typography (a heading, a paragraph, and a call-to-action button).
+- Use semantic Tailwind colors (e.g., `bg-background`, `text-foreground`, `text-muted-foreground`) so it inherits the global theme automatically.
+
+Provide the complete, functional component. Clearly comment the section where the Framer Motion variants handle the Mobile (Y-axis) vs. Desktop (X-axis) and LTR vs. RTL math.
