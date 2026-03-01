@@ -6,7 +6,7 @@ Your task is to build a reusable "Fade In/Out" scroll wrapper and a smooth "Cont
 - Create a reusable React component called `FadeInSection`.
 - Use Framer Motion (`motion.div`). 
 - **Animation Logic:** Set `initial={{ opacity: 0, y: 30 }}` and `whileInView={{ opacity: 1, y: 0 }}`.
-- **The Magic Prop:** You MUST set `viewport={{ once: false, amount: 0.2 }}`. This ensures the section fades *out* when the user scrolls past it, and fades back *in* when they scroll back to it. Include a smooth transition (`duration: 0.6, ease: "easeOut"`).
+- **The Stability Prop:** You MUST set `viewport={{ once: true, amount: 0.2 }}`. This ensures the section fades in smoothly the first time it enters the viewport and remains perfectly stable afterward. Include a smooth transition (`duration: 0.6, ease: "easeOut"`).
 
 ### 2. The Contact Form Modal (Click-Triggered)
 - Create a `ContactModal` component managed by a boolean state (`isOpen`, `setIsOpen`).
